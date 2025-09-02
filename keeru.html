@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mini To-Do</title>
+<style>body{font-family:system-ui;padding:16px}input{padding:8px}button{margin-left:8px}</style>
+</head>
+<body>
+<h3>Quick To-Do</h3>
+<input id="task" placeholder="Add task..." autofocus>
+<button id="add">Add</button>
+<ul id="list"></ul>
+<script>
+document.getElementById('add').onclick=()=>{const v=document.getElementById('task');if(!v.value.trim())return;const li=document.createElement('li');li.textContent=v.value;li.onclick=()=>li.remove();document.getElementById('list').appendChild(li);v.value='';v.focus();}
+ // Enter key adds
+document.getElementById('task').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('add').click()})
+</script>
+<p style="font-size:12px;color:#666">Click a task to remove it.</p>
+</body></html>
